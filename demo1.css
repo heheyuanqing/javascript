@@ -1,0 +1,56 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+.container{
+    margin:  0 auto;
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+.list{
+    width: 2000px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+
+}
+img{
+    width: 500px;
+    height: 300px;
+    float: left;
+}
+.btns{
+    position: absolute;
+    left: 40%;
+    bottom: 10px;
+}
+.btns span{
+    width: 10px;
+    height: 10px;
+    float: left;
+    margin-left: 5px;
+    border-radius: 50%;
+    background-color: gray;
+}
+.btns .on{
+    background-color: bisque;
+}
+.prev,
+.next{
+    position: absolute;
+    top: 45%;
+    font-size: 40px;
+    color: white;
+    background: rgba(128,128,128,0.4);
+    text-align: center;
+    display: none;
+}
+.prev{
+    left: 20px;
+}
+.next{
+    right: 20px;
+}
