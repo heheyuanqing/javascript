@@ -1,4 +1,5 @@
 var index = 1;
+var animated = false;
 var timer;
 
 window.onload = init;
@@ -21,14 +22,15 @@ function getLeft(offset) {
     var time = 300;
     var interval = 10;
     var speed = offset/(time/interval);
+    animated = true;
 
     function go() {
         if((speed<0&&parseInt(list.style.left)>newLeft)||(speed>0&&parseInt(list.style.left)<newLeft)){
             list.style.left = parseInt(list.style.left) + speed + 'px';
             setTimeout(go,interval);
-            // debugger;
         }
         else {
+            animated = false;
             list.style.left = newLeft + 'px' ;
             if (newLeft < -2000) {
                 list.style.left = -500 + "px";
@@ -48,10 +50,10 @@ function changeIndex(action) {
     else {
         index--;
     }
-    if (index > 4) {
+    if (index === 4) {
         index = 1;
     }
-    if (index < 1) {
+    if (index === 1) {
         index = 4;
     }
     activeBtn();
@@ -98,6 +100,14 @@ function eventBind() {
     
     next.onclick = function () {
         changeIndex(true);
-        getLeft(-500);
-    }
+        if (!animated){
+            getLeft(-500);
+        }
+    };
+    prev.onclick = function () {
+        changeIndex(false);
+        if (!animated){
+            getLeft(500);
+        }
+    };
 }
