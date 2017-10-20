@@ -1,4 +1,6 @@
 # javascript demo
+&emsp;&emsp;
+*都使用原生Js实现*
 -  &emsp;&emsp;demo1 使用js实现简单左右轮播图
 
 -  &emsp;&emsp;demo2 使用js实现回到顶部
