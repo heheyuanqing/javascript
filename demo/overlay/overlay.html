@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>实现遮罩层</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+        button {
+            width: 160px;
+            height: 25px;
+
+        }
+
+        .over {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            /*使用 RGBA设置透明度*/
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .pop {
+            display: none;
+            width: 400px;
+            height: 200px;
+            background: white;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="notice">点击按钮实现遮罩效果</div>
+    <button id="btn1">点击</button>
+    <div id="over" class="over"></div>
+    <div class="pop">
+        <div id="btn2" style="text-align: center;cursor: pointer;margin-top: 2px;background-color: #F5F5FF">关闭</div>
+        <div style="text-align: center;margin-top: 50px">这是弹窗内容</div>
+    </div>
+
+</div>
+<script>
+    var over = document.getElementById("btn1");
+    var close = document.getElementById("btn2");
+
+    function overlay() {
+        console.log("实现遮罩层效果");
+        var wrapper = document.getElementById("over");
+        wrapper.style.display="block";
+        var pop = document.getElementsByClassName("pop")[0];
+        pop.style.display="block";
+    }
+
+    function closelay() {
+        console.log("关闭遮罩层");
+        var wrapper = document.getElementById("over");
+        wrapper.style.display='none';
+        var pop = document.getElementsByClassName("pop")[0];
+        pop.style.display='none';
+    }
+
+    over.addEventListener('click',overlay,false);
+    close.addEventListener('click',closelay,false);
+</script>
+</body>
+</html>
